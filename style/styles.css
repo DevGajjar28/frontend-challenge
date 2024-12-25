@@ -10,10 +10,10 @@ body {
   color: #333;
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
-
+/* 
 #introduction {
   height: 300px;
-}
+} */
 
 #main-header {
   height: 200px;
@@ -24,6 +24,37 @@ body {
   color: #1a237e;
   padding: 20px;
   text-align: center;
+  position: relative; /* Ensure header content stays on top */
+}
+
+#main-nav {
+  position: relative;
+}
+
+#main-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Always show navigation links */
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Ensure nav stays on top */
+}
+
+#main-nav li {
+  margin: 0 1rem;
+}
+
+#main-nav a {
+  color: #1a237e;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Hamburger Menu Styles (Removed for small devices) */
+.menu-toggle {
+  display: none; /* Hide hamburger menu entirely */
 }
 
 /* Snowflake Styles */
@@ -93,7 +124,11 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  #hemispheres {
+    padding: 1.5rem;
+  }
+
   .hemisphere-content {
     flex-direction: column;
     text-align: center;
@@ -105,12 +140,12 @@ body {
   }
 
   .hemisphere-content img {
-    width: 80%; /* Make image smaller on mobile */
+    width: 80%;
     margin-top: 1rem;
   }
 }
-/* science  */
 
+/* science section */
 #science {
   max-width: 1200px;
   margin: 2rem auto;
@@ -124,10 +159,9 @@ body {
   color: #1a237e;
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  /* text-align: center; */
 }
 
-/* Flexbox Layout for Content */
+/* content section */
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -135,7 +169,6 @@ body {
   align-items: flex-start;
 }
 
-/* Text Section Styling */
 .text {
   flex: 2;
   color: #424242;
@@ -147,7 +180,7 @@ body {
   line-height: 1.6;
 }
 
-/* Image Section Styling */
+/* image container */
 .images {
   flex: 1;
   display: flex;
@@ -157,15 +190,55 @@ body {
 
 .images img {
   width: 100%;
+  height: auto; /* Ensure the aspect ratio is maintained */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   object-fit: cover;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  animation: fadeIn 1s ease-out;
+/* Make images responsive on smaller screens */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column; /* Stack the text and images */
+    align-items: center;
+  }
+
+  .images {
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .images img {
+    width: 100%; /* Ensure the image fills its container */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* For very small screens like mobile */
+@media (max-width: 768px) {
+  #science {
+    padding: 1rem;
+  }
+
+  #science h2 {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .images img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 #main-nav ul {
@@ -223,8 +296,24 @@ h3 {
 p {
   margin-bottom: 1rem;
 }
+/* celebration section */
+#celebrations {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Celebration Article Styling */
+#celebrations h2 {
+  color: #1a237e;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* celebration article styling */
 .celebration {
   display: flex;
   align-items: flex-start;
@@ -261,6 +350,54 @@ p {
 .celebration p {
   margin-bottom: 1rem;
   font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .celebration {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .celebration img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .text-content {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Small Devices (Mobile) */
+@media (max-width: 768px) {
+  #celebrations {
+    padding: 1rem;
+  }
+
+  #celebrations h2 {
+    font-size: 1.8rem;
+  }
+
+  .celebration {
+    padding: 0.8rem;
+  }
+
+  .celebration img {
+    width: 100%;
+    height: auto;
+  }
+
+  .celebration h3 {
+    font-size: 1.4rem;
+  }
+
+  .celebration p {
+    font-size: 1rem;
+  }
 }
 
 #traditions ul {
@@ -323,7 +460,7 @@ p {
   transform: translateX(10px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #main-nav ul {
     flex-direction: column;
     align-items: center;
@@ -334,7 +471,8 @@ p {
     padding: 1rem;
   }
 }
-/* Section Styles */
+
+//* Section Styles */
 #traditions {
   max-width: 1200px;
   margin: 2rem auto;
@@ -351,19 +489,17 @@ p {
   text-align: center;
 }
 
-/* List Styling */
 .tradition-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* Individual Tradition Styling */
 .tradition {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  height: 300px; /* Set a fixed height for each tradition box */
+  height: 300px;
 }
 
 .tradition img {
@@ -373,37 +509,42 @@ p {
   transition: transform 0.4s ease-in-out;
 }
 
+/* Initially hide the content */
 .tradition-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  width: 90%;
   text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none; /* Prevent interaction when hidden */
 }
 
-.tradition:hover .tradition-content {
-  opacity: 1;
+.tradition-content h3 {
+  font-size: 1.5rem;
 }
 
+/* Hover effect */
 .tradition:hover img {
   transform: scale(1.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+.tradition:hover .tradition-content {
+  opacity: 1;
+  background: #3a3838;
+  border-radius: 5%;
+}
+
+@media (max-width: 1024px) {
   .tradition-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .tradition-list {
     grid-template-columns: 1fr;
   }
